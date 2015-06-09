@@ -14,11 +14,18 @@ $(function(){
 		if(!this.isInMonth(monthIndex)){
 			return "outMonth";
 		}
+		if(this.isToday()){
+			return "today";
+		}
 		if(this.isWeekend()){
 			return "weekend";
 		}
 		return "white";
 		
+	},
+	isToday: function(MonthIndex){
+		var today = new Date();
+		return this.date.getDate()==today.getDate()&&this.date.getMonth()==today.getMonth();
 	},
 	isInMonth: function(MonthIndex){
 		return this.date.getMonth()==MonthIndex;
